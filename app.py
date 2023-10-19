@@ -41,7 +41,8 @@ def previsao_churn(dados_entrada, dados, modelo):
     '''Função para fazer a previsão de churn'''
     
     # concatenando o dado de entrada com nossos dados
-    df_entrada = pd.DataFrame([dados_entrada], columns = colunas)
+
+    df_entrada = pd.DataFrame([dados_entrada], columns = dados.columns)
     dados_final =  pd.concat([dados, df_entrada], ignore_index=True)
     
     # tratando os dados
@@ -67,7 +68,7 @@ def exibir_previsao(dados_entrada, dados, modelo):
 
     if predicao == 0:
         st.error('Churn: Não', icon="❌")
-        st.progress(round(probabilidade * 100), text=f':black[Probabilidade do permanecer como nosso cliente: {round(probabilidade * 100, 2)}%]')
+        st.progress(round(probabilidade * 100), text=f':black[Probabilidade de permanecer como nosso cliente: {round(probabilidade * 100, 2)}%]')
     else:
         st.success('Churn: Sim', icon="✅")
         st.progress(round(probabilidade * 100), text=f':black[Probabilidade de deixar de ser nosso cliente: {round(probabilidade * 100, 2)}%]')
@@ -184,7 +185,7 @@ dados_entrada = {
 # Carregando os dados usados no treinamento
 dados = pd.read_csv('Notebooks/dados_etapa1.csv')
 dados = dados.iloc[:, 2:] # Removendo Churn
-colunas = dados.columns
+
 
 # Carregando o modelo treinado
 # modelo = pickle.load(open('Notebooks/XGBClassifier.pkl', 'rb'))
