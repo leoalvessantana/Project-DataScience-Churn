@@ -10,6 +10,7 @@ import requests
 import streamlit as st
 # import xgboost as xgb
 from PIL import Image
+from sklearn.linear_model import LogisticRegression
 
 # =============================================================================
                                 ## FUNÇÕES ##
