@@ -39,7 +39,6 @@ Nessa etapa o objetivo é encontrar o modelo de machile learning que melhor se c
 ## Etapa 3 - Deploy do modelo de machine learning
 
 
-Nessa última etapa utilizamos o Streamlit para fazer o deploy do nosso modelo. Nesse nosso aplicativo Web ao colocar as informações do cliente mostramos se o cliente é 
-um potencial candidato a deixar a empresa ou não.
+Nessa última etapa utilizamos o Streamlit para fazer o deploy do nosso modelo. Nesse nosso aplicativo Web os usuários podem inserir informações e obter uma previsão de churn com base em um modelo de Machine Learning.
 
-
+[App Streamlit](https://project-datascience-churn.streamlit.app/)
