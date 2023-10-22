@@ -8,7 +8,7 @@ import pandas as pd
 import plotly.express as px
 import requests
 import streamlit as st
-import xgboost as xgb
+# import xgboost as xgb
 from PIL import Image
 
 # =============================================================================
@@ -68,14 +68,10 @@ def exibir_previsao(dados_entrada, dados, modelo):
 
     if predicao == 0:
         st.error('Churn: Não', icon="❌")
-        st.progress(round(probabilidade * 100), text=f':black[Probabilidade de permanecer como nosso cliente: {round(probabilidade * 100, 2)}%]')
+        st.progress(round(probabilidade * 100), text=f'Probabilidade de permanecer como nosso cliente: {round(probabilidade * 100, 2)}%')
     else:
         st.success('Churn: Sim', icon="✅")
-        st.progress(round(probabilidade * 100), text=f':black[Probabilidade de deixar de ser nosso cliente: {round(probabilidade * 100, 2)}%]')
-
-
-    
-
+        st.progress(round(probabilidade * 100), text=f'Probabilidade de deixar de ser nosso cliente: {round(probabilidade * 100, 2)}%')
 
     
     
@@ -189,7 +185,7 @@ dados = dados.iloc[:, 2:] # Removendo Churn
 
 # Carregando o modelo treinado
 # modelo = pickle.load(open('Notebooks/XGBClassifier.pkl', 'rb'))
-modelo = joblib.load('XGBClassifier.pkl')
+modelo = joblib.load('Notebooks/LogisticRegression.pkl')
 
 
 
